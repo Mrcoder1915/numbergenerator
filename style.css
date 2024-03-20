@@ -1,0 +1,226 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100px;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+.logo{
+    font-size: 2.5em;
+    color: white;
+    user-select: none;
+    font-weight: 500;
+}
+.navigation a{
+    position: relative;
+    margin-left: 40px;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: white;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform .5s;
+}
+.navigation a:hover:after{
+    transform-origin: left;
+    transform: scale(1);
+
+}
+.btn-login{
+    position: relative;
+    margin-left: 40px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    background: transparent;
+    font-size: 1em;
+    font-weight: 500;
+    transition: .5s;
+}
+.btn-login:hover{
+    background-color: black;
+    color: white;
+}
+.maincontainer{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    border: 2px solid rgba(225,225,225,.5);
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: 2px 2px 30px  rgba(0,0,0,.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .18 ease;
+   overflow: hidden;
+   transform: scale(0);
+   transition: transform .5s ease;
+ }
+ .maincontainer.active-popup{
+    
+    transform: scale(1);
+ }
+ .maincontainer.active{
+    height: 520px;
+ }
+ .maincontainer .form-box{
+    transition: transform .18s ease;
+    transform: translateX(0);
+ }
+ .maincontainer.active .form-box{
+    transition: none;
+    transform: translateX(-400px);
+ }
+ .maincontainer .register-box{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+ }
+ .maincontainer.active .form-box.register-box{
+    transition: transform .18s ease;
+    transform: translateX(0);
+ }
+.maincontainer .form-box{
+    width: 100%;
+    padding: 40px;
+}
+.maincontainer h2{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+}
+.input-box{
+    position:relative;
+    margin: 20px 0;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+}
+.input-box label{
+    position: absolute;
+    left:5px;
+    top:40%;
+    user-select: none;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -6px;
+}
+
+.input-box input{
+    position: relative;
+    bottom: -10px;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+}
+.remember-forgot{
+    accent-color:black;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.remember-forgot a{
+    color: black;
+    text-decoration: none;
+    transition: 1s;
+}
+.remember-forgot a:hover{
+    color: white;
+    text-decoration: underline;
+}
+.btn-submit{
+    width: 100%;
+    height: 40px;
+    background-color:rgb(38, 34, 34);
+    outline: none;
+    border: black;
+    border-radius: 5px;
+    color: white;
+    font-size: .9em;
+    margin-bottom: 5px;
+}
+.register a{
+     color: black;
+     text-decoration: none;
+     transition: 1s;
+}
+.register a:hover{
+    color: white;
+    text-decoration: underline;
+}
+.iconclose{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    background: skyblue;
+    font-size: 3em;
+    border-bottom-left-radius: 25px;
+}
+.about{
+    position:absolute;
+    left: 50px;
+    bottom: 150px;
+    width: 250px;
+    height: 300px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transform: scale(0);
+    transition: transform .20s ease;
+}
+.about.active-popup{
+
+    transform: scale(1);
+}
+.text p{
+    font-size: 1.5em;
+    color: white;
+}
+.iconclose-about{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    width: 45px;
+    background: skyblue;
+    font-size: 3em;
+    border-bottom-left-radius: 25px;
+}
