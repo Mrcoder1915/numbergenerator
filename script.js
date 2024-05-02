@@ -6,6 +6,7 @@ const  error = document.querySelector('.err');
 const  conerr = document.querySelector('.generateNumber');
 const  container = document.querySelector('.container');
 const  input = document.querySelectorAll('.inputitem input');
+// this line is a function that will show error
 function showerrors()  {
     error.style.display = "block"
     conerr.style.borderColor =  "red"
@@ -15,6 +16,7 @@ function showerrors()  {
     container.style.boxShadow = "0 0 20px red"
     box.style.display = "none"
 }
+// this line is a function that will hide error
 function hideerrors(){
     error.style.display = "none"
     conerr.style.borderColor =  "black"
@@ -23,28 +25,30 @@ function hideerrors(){
     container.style.borderColor = "black"
     container.style.boxShadow = "0 0 20px black"
     box.style.display = "block"
+    
 }
-
+// this line is a function that generate a random number
 
 function generate(){
     let max = parseInt(maximum.value);
     let min = parseInt(minimum.value);
     let random = Math.floor(Math.random() *  (max - min + 1)) + min; 
+    input[0].addEventListener('keypress', () => {
+        hideerrors()
+    })
+    input[1].addEventListener('keypress', () => {
+        hideerrors()
+    })
     if(isNaN(max) || isNaN(min)){
         showerrors()
     }
-    else if(max < min){
-        error.style.display = "block"
-        box.style.display = "none" 
+    else if(max < min || max === min){
+        showerrors()
     }  
     else{
-        hideerrors()
-        box.innerHTML = random;
-        box.style.display = "block" 
-        error.style.display = "none"
+        hideerrors() 
+        box.innerHTML = random;   
     }
-
 }
 button.addEventListener('click', generate)
 document.addEventListener('keypress', (e) => e.key === 'Enter' && generate())
-console.log(input[0])
